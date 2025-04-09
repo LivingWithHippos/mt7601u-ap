@@ -52,7 +52,11 @@
 #include <linux/unistd.h>
 #include <asm/uaccess.h>
 #include <asm/types.h>
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 12, 0)
 #include <asm/unaligned.h>	/* for get_unaligned() */
+#else
+#include <linux/unaligned.h>
+#endif
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
 #include <linux/pid.h>
